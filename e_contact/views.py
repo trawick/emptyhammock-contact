@@ -2,12 +2,13 @@ from django.shortcuts import reverse
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 
+from .forms import ContactForm
 from .models import Contact
 
 
 class ContactView(CreateView):
     model = Contact
-    fields = ('name', 'email', 'message')
+    form_class = ContactForm
 
     def get_template_names(self):
         return ['e_contact/contact.html']
