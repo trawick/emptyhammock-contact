@@ -15,7 +15,6 @@ garbage-collected automatically.
 
 Add these features before we can use it on a client site:
 
-* SPAM-prevention
 * E-mail validation (user must click on link to fix state of message in db)
 * Notifying site admin when there are new contact form submissions that have
   been validated
@@ -28,6 +27,22 @@ Add these features before we can use it on a client site:
   contact form and submit to `{% url 'e_contact:create' %}`.
 * Implement template `e_contact/contact_created.html` to tell the user
   what happens after the form submission.
+
+## Enabling Google reCAPTCHA
+
+* Sign up for reCAPTCHA.
+* Install the django-recaptcha package and add `'captcha'` to `INSTALLED_APPS`.
+* Add `CONTACT_SETTINGS` dictionary to `settings`, if it doesn't already exist.
+* Set values for `recaptcha-public-key` and `recaptcha-private-key` in that
+  dictionary.  On production, those will be the values provided when you signed
+  up for reCAPTCHA.  For test environments, those will be the values provided
+  by Google for anyone to use during testing.  See
+  https://developers.google.com/recaptcha/docs/faq#id-like-to-run-automated-tests-with-recaptcha-v2-what-should-i-do
+* Optionally set a value for `recaptcha-theme` in that dictionary, using one of
+  the values documented by Google.
+* In your contact form template, ensure that the `captcha` field is rendered.
+  This will happen automatically unless your template lays out the form
+  manually.
 
 ## Support
 
