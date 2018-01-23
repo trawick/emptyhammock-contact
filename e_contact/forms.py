@@ -34,7 +34,9 @@ class ContactForm(forms.ModelForm):
                 self.fields['captcha'] = ReCaptchaField(
                     attrs={
                         'theme': self.contact_settings['recaptcha-theme'],
-                    }
+                    },
+                    public_key=self.contact_settings['recaptcha-public-key'],
+                    private_key=self.contact_settings['recaptcha-private-key'],
                 )
 
     def clean(self):

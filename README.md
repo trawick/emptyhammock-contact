@@ -28,6 +28,11 @@ Add these features before we can use it on a client site:
 * Implement template `e_contact/contact_created.html` to tell the user
   what happens after the form submission.
 
+## Test template handling of form errors
+
+* Add `CONTACT_SETTINGS` dictionary to `settings`, if it doesn't already exist.
+* Set the value for `test-non-field-error` to `True` in that dictionary.
+
 ## Enabling Google reCAPTCHA
 
 * Sign up for reCAPTCHA.
