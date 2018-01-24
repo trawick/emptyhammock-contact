@@ -43,9 +43,12 @@ Add these features before we can use it on a client site:
   up for reCAPTCHA.  For test environments, those will be the values provided
   by Google for anyone to use during testing.  See
   https://developers.google.com/recaptcha/docs/faq#id-like-to-run-automated-tests-with-recaptcha-v2-what-should-i-do
+* Set `settings.NOCAPTCHA = True` so that django-recaptcha renders the modern
+  Google "I'm not a robot" reCAPTCHA.
 * Optionally set a value for `recaptcha-theme` in that dictionary, using one of
   the values documented by Google.
-* In your contact form template, ensure that the `captcha` field is rendered.
+* In your contact form template, ensure that the `captcha` field and its
+  `errors` attribute, if set, is rendered.
   This will happen automatically unless your template lays out the form
   manually.
 
