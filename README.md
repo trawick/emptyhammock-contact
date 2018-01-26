@@ -13,11 +13,9 @@ garbage-collected automatically.
 
 ## Near-term plans
 
-Add these features before we can use it on a client site:
+Add these features:
 
 * E-mail validation (user must click on link to fix state of message in db)
-* Notifying site admin when there are new contact form submissions that have
-  been validated
 
 ## Integration requirements
 
@@ -36,7 +34,7 @@ Add these features before we can use it on a client site:
 ## Enabling Google reCAPTCHA
 
 * Sign up for reCAPTCHA.
-* Install the django-recaptcha package and add `'captcha'` to `INSTALLED_APPS`.
+* Install the `django-recaptcha` package and add `'captcha'` to `INSTALLED_APPS`.
 * Add `CONTACT_SETTINGS` dictionary to `settings`, if it doesn't already exist.
 * Set values for `recaptcha-public-key` and `recaptcha-private-key` in that
   dictionary.  On production, those will be the values provided when you signed
@@ -51,6 +49,17 @@ Add these features before we can use it on a client site:
   `errors` attribute, if set, is rendered.
   This will happen automatically unless your template lays out the form
   manually.
+
+## Enabling SMS notification via Twilio
+
+* Install the `twilio` package from PyPI.
+* Configure values for these keys in `CONTACT_SETTINGS`:  `twilio-account-sid`,
+  `twilio-auth-token`, `sms-from` (Twilio-provided phone number), and
+  `sms-to` (admin's cell phone number in the same format).  You can also set a
+  value for `sms-body` to override the default message.
+* Add code in your project to call `e_contact.utils.notify()` at an appropriate
+  interval.  This will mark all Contacts submitted since the last call as 
+  "notified" and send a single SMS.
 
 ## Support
 

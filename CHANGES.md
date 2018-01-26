@@ -2,6 +2,8 @@
 
 ## Version 0.0.5
 
+* The admin can optionally be notified of submitted contact requests via
+  Twilio (SMS).
 * Contact's `state` field is now editable in admin.
 
 ## Version 0.0.4
