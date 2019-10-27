@@ -1,5 +1,9 @@
 # Changes and migration requirements
 
+## Version 0.0.6 (unreleased)
+
+* Support Django 2.2.
+
 ## Version 0.0.5
 
 * The admin can optionally be notified of submitted contact requests via
