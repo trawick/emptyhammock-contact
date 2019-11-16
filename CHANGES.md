@@ -1,5 +1,11 @@
 # Changes and migration requirements
 
+## Version 0.0.7 (unreleased)
+
+* Add e-mail as a contact mechanism.
+* Add e_contact_notify management command to notify if there are new contact
+  requests.
+
 ## Version 0.0.6
 
 * Support Django 2.2.

@@ -1,2 +1,6 @@
-Django==1.11.21
-  pytz==2019.1
+Django==2.2.7
+  pytz==2019.3
+  sqlparse==0.3.0
+django-click==2.0.0
+  click==7.0
+  six==1.13.0

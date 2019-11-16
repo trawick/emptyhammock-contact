@@ -15,7 +15,8 @@ garbage-collected automatically.
 
 Add these features:
 
-* E-mail validation (user must click on link to fix state of message in db)
+* E-mail validation (user must receive e-mail and click on embedded link before
+  message is ready to be processed)
 
 ## Integration requirements
 
@@ -50,16 +51,25 @@ Add these features:
   This will happen automatically unless your template lays out the form
   manually.
 
-## Enabling SMS notification via Twilio
+## Enabling SMS or e-mail notification
+
+* Add code in your project to call `e_contact.utils.notify()` at an appropriate
+  interval.  This will mark all Contacts submitted since the last call as 
+  "notified" and send a single SMS and/or.
+
+### Enabling SMS notification via Twilio
 
 * Install the `twilio` package from PyPI.
 * Configure values for these keys in `CONTACT_SETTINGS`:  `twilio-account-sid`,
   `twilio-auth-token`, `sms-from` (Twilio-provided phone number), and
   `sms-to` (admin's cell phone number in the same format).  You can also set a
   value for `sms-body` to override the default message.
-* Add code in your project to call `e_contact.utils.notify()` at an appropriate
-  interval.  This will mark all Contacts submitted since the last call as 
-  "notified" and send a single SMS.
+
+### Enabling e-mail notification
+
+* Configure Django e-mail settings (`EMAIL_HOST`, `EMAIL_PORT`, etc.).
+* Configure values for these keys in `CONTACT_SETTINGS`: `email_subject`,
+  `email-body`, `email-from`, `email-to`.
 
 ## Support
 

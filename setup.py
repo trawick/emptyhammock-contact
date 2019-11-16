@@ -29,4 +29,5 @@ setup(
         'License :: OSI Approved :: Apache 2.0 License',
         'Development Status :: 3 - Alpha',
     ],
+    install_requires=['django', 'django-click']
 )
