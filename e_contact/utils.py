@@ -40,7 +40,7 @@ class Notifier(ABC):
         if self.enabled:
             if self._determine_if_misconfigured():
                 raise ImproperlyConfigured(
-                    f'{self.__class__.__name__} is not configured properly'
+                    '{} is not configured properly'.format(self.__class__.__name__)
                 )
 
     @abstractmethod

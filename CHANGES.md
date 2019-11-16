@@ -1,5 +1,9 @@
 # Changes and migration requirements
 
+## Version 0.0.8
+
+* Fix incompatibilities with Python 3.5.
+
 ## Version 0.0.7
 
 * Add e-mail as a contact mechanism.
