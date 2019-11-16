@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 import logging
 
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.core.mail import send_mail
 
 try:
@@ -37,7 +38,10 @@ class Notifier(ABC):
         self.enabled = False
         self._determine_if_enabled()
         if self.enabled:
-            self._determine_if_misconfigured()
+            if self._determine_if_misconfigured():
+                raise ImproperlyConfigured(
+                    f'{self.__class__.__name__} is not configured properly'
+                )
 
     @abstractmethod
     def _determine_if_enabled(self):
@@ -103,6 +107,9 @@ class EmailNotifier(Notifier):
 
     def _determine_if_misconfigured(self):
         assert self.enabled
+
+        if not settings.get('EMAIL_HOST'):
+            return True
 
         return not all(
             (
