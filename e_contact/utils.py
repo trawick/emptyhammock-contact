@@ -146,10 +146,9 @@ def notify():
     email = EmailNotifier(contact_settings)
 
     if (twilio.enabled or email.enabled) is False:
-        logger.critical(
-            'Contact notify() should not be called if SMS or e-mail isn\'t configured!'
-        )
-        return
+        msg = 'Contact notify() should not be called if SMS or e-mail isn\'t enabled!'
+        logger.critical(msg)
+        raise ImproperlyConfigured(msg)
 
     # Currently there's no way to verify contact requests, so we
     # notify for requests in state SUBMITTED.
