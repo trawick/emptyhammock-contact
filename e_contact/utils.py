@@ -103,12 +103,12 @@ class TwilioNotifier(Notifier):
 class EmailNotifier(Notifier):
 
     def _determine_if_enabled(self):
-        return self.contact_settings['email-to']
+        self.enabled = self.contact_settings['email-to']
 
     def _determine_if_misconfigured(self):
         assert self.enabled
 
-        if not settings.get('EMAIL_HOST'):
+        if not getattr(settings, 'EMAIL_HOST', None):
             return True
 
         return not all(
