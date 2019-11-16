@@ -1,6 +1,6 @@
 # Changes and migration requirements
 
-## Version 0.0.7 (unreleased)
+## Version 0.0.7
 
 * Add e-mail as a contact mechanism.
 * Add e_contact_notify management command to notify if there are new contact
