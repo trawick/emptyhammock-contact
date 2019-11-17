@@ -1,5 +1,10 @@
 # Changes and migration requirements
 
+## Version 0.0.9 (not released)
+
+* Fix identification of misconfiguration where no backend is configured for
+  notifications.
+
 ## Version 0.0.8
 
 * Fix incompatibilities with Python 3.5.

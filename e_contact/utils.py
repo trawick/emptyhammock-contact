@@ -63,7 +63,7 @@ class Notifier(ABC):
 class TwilioNotifier(Notifier):
 
     def _determine_if_enabled(self):
-        self.enabled = self.contact_settings['twilio-account-sid']
+        self.enabled = bool(self.contact_settings['twilio-account-sid'])
 
     def _determine_if_misconfigured(self):
         assert self.enabled
@@ -103,7 +103,7 @@ class TwilioNotifier(Notifier):
 class EmailNotifier(Notifier):
 
     def _determine_if_enabled(self):
-        self.enabled = self.contact_settings['email-to']
+        self.enabled = bool(self.contact_settings['email-to'])
 
     def _determine_if_misconfigured(self):
         assert self.enabled
@@ -146,7 +146,7 @@ def notify():
     email = EmailNotifier(contact_settings)
 
     if (twilio.enabled or email.enabled) is False:
-        msg = 'Contact notify() should not be called if SMS or e-mail isn\'t enabled!'
+        msg = 'Neither SMS nor e-mail is configured for emptyhammock-contact!'
         logger.critical(msg)
         raise ImproperlyConfigured(msg)
 
