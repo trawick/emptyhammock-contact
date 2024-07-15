@@ -1,11 +1,11 @@
-Django>=2.2.9,<2.3
-  pytz==2019.3
-  sqlparse==0.3.0
-django-click==2.0.0
-  click==7.0
-  six==1.13.0
-flake8==3.7.9
-  entrypoints==0.3
-  mccabe==0.6.1
-  pycodestyle==2.5.0
-  pyflakes==2.1.1
+Django==4.2.14
+  pytz
+  sqlparse
+django-click
+  click
+  six
+flake8
+  entrypoints
+  mccabe
+  pycodestyle
+  pyflakes

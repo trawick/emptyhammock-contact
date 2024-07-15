@@ -1,5 +1,9 @@
 # Changes and migration requirements
 
+## Version 0.1.0
+
+* Support/require Django 4.2.
+
 ## Version 0.0.9 (not released)
 
 * Fix identification of misconfiguration where no backend is configured for
